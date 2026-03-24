@@ -1,3 +1,4 @@
+const optionsRoute = require("./routes/options.route");
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -7,12 +8,12 @@ const cors=require('cors');
 const corsOptions={
     origin: '*',
 };
-
+const authRouter = require("./routes/auth.route");
 const registerRouter=require("./routes/register.route");
 const companyRouter = require("./routes/company.route");
 const departmentRouter = require("./routes/department.route");
 const projectRouter = require("./routes/project.route");
-
+const chartRoute = require("./routes/chart.route");
 const app = express();
 
 
@@ -31,7 +32,9 @@ app.use('/register', registerRouter);
 app.use("/company", companyRouter);
 app.use("/department", departmentRouter);
 app.use("/project", projectRouter);
-
+app.use('/auth', authRouter);
+app.use("/options", optionsRoute);
+app.use("/chart", chartRoute);
 //http://localhost/register
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

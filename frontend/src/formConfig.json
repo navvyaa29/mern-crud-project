@@ -24,11 +24,11 @@
     "required": true
   },
   {
-    "label": "Gender",
-    "name": "gender",
-    "type": "select",
-    "options": ["male", "female"]
-  },
+  "name": "gender",
+  "label": "Gender",
+  "type": "select",
+  "optionsApi": "/options/gender"
+},
   {
     "label": "Address",
     "name": "address",
